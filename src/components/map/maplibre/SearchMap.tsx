@@ -47,8 +47,14 @@ const MapEffects = ({ center, start, end }: MapEffectsProps) => {
     if (center) {
       m.flyTo(center);
     } else if (end) {
-      const sw = { lat: Math.min(start.lat, end.lat), lng: Math.min(start.lng, end.lng) };
-      const ne = { lat: Math.max(start.lat, end.lat), lng: Math.max(start.lng, end.lng) };
+      const sw = {
+        lat: Math.min(start.lat, end.lat),
+        lng: Math.min(start.lng, end.lng),
+      };
+      const ne = {
+        lat: Math.max(start.lat, end.lat),
+        lng: Math.max(start.lng, end.lng),
+      };
       m.fitBounds([sw, ne], { padding: 40 });
     }
   }, [center, start, end, m]);
